@@ -36,8 +36,8 @@
             <img class="hero-icon" src="./assets/icon.png" alt="DesignFlow" width="80" height="80" />
             <h1>DesignFlow</h1>
             <p class="tagline">local-first architecture canvas for co-working with AI</p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#download" id="hero-download">Download for Mac</a>
+            <div class="hero-actions" id="hero-downloads">
+              <a class="btn btn-primary" href="#download">Download for Mac</a>
             </div>
           </div>
         </div>
@@ -79,8 +79,8 @@
       <section id="download">
         <div class="container">
           <div class="section-header">
-            <h2>Download</h2>
-            <p>macOS 11+ and Windows 10+.</p>
+            <h2>Download for Mac</h2>
+            <p>macOS 11+. Choose Apple Silicon (M1/M2/M3/M4) or Intel.</p>
           </div>
           <div class="download-grid" id="download-grid"></div>
         </div>
@@ -107,32 +107,50 @@
         const { github, downloads, screenshots, links } = cfg;
         const releaseBase = `https://github.com/${github.owner}/${github.repo}/releases/latest/download`;
 
+        function releaseUrl(filename) {
+          return `${releaseBase}/${filename}`;
+        }
+
         document.getElementById('year').textContent = new Date().getFullYear();
 
         if (links.supportEmail) {
           document.getElementById('footer-support').href = `mailto:${links.supportEmail}`;
         }
 
-        const arm = downloads['darwin-arm64'];
-        if (arm?.enabled) {
-          const heroBtn = document.getElementById('hero-download');
-          heroBtn.href = `${releaseBase}/${arm.filename}`;
+        const macDownloads = Object.entries(downloads).filter(
+          ([key, item]) => key.startsWith('darwin-') && item.enabled
+        );
+
+        const heroContainer = document.getElementById('hero-downloads');
+        heroContainer.replaceChildren();
+        macDownloads.forEach(([key, item], index) => {
+          const btn = document.createElement('a');
+          btn.className = 'btn ' + (index === 0 ? 'btn-primary' : 'btn-secondary');
+          btn.href = releaseUrl(item.filename);
+          btn.setAttribute('download', '');
+          btn.textContent = item.label;
+          heroContainer.appendChild(btn);
+        });
+        if (macDownloads.length === 0) {
+          const fallback = document.createElement('a');
+          fallback.className = 'btn btn-primary';
+          fallback.href = '#download';
+          fallback.textContent = 'Download for Mac';
+          heroContainer.appendChild(fallback);
         }
 
         const downloadGrid = document.getElementById('download-grid');
         for (const [key, item] of Object.entries(downloads)) {
+          if (!item.enabled) continue;
           const el = document.createElement('a');
-          el.className = 'download-btn' + (item.enabled ? '' : ' disabled');
-          el.href = item.enabled ? `${releaseBase}/${item.filename}` : '#';
-          if (item.enabled) {
-            el.setAttribute('download', '');
-          }
+          el.className = 'download-btn';
+          el.href = releaseUrl(item.filename);
+          el.setAttribute('download', '');
           el.innerHTML = `
             <span>
               <span class="label">${item.label}</span>
-              ${item.enabled ? '' : '<span class="meta">Coming soon</span>'}
             </span>
-            <span class="arrow" aria-hidden="true">${item.enabled ? '↓' : '—'}</span>
+            <span class="arrow" aria-hidden="true">↓</span>
           `;
           downloadGrid.appendChild(el);
         }
