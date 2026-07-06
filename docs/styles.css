@@ -265,11 +265,11 @@ section.alt .feature-card {
 }
 
 .preview-card {
-  display: flex;
-  flex-direction: column;
+  display: block;
   min-width: 0;
   max-width: 100%;
-  height: auto;
+  height: fit-content;
+  align-self: start;
   border: 1px solid var(--zen-border);
   border-radius: 12px;
   overflow: hidden;
@@ -280,12 +280,11 @@ section.alt .feature-card {
   display: block;
   width: 100%;
   height: auto;
-  flex: 0 0 auto;
   background: var(--zen-sidebar);
 }
 
 .preview-card figcaption {
-  flex: 0 0 auto;
+  display: block;
   padding: 0.85rem 1rem;
   font-size: 0.9rem;
   color: var(--zen-muted);
