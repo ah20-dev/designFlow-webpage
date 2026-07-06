@@ -9,11 +9,11 @@ Portable bundle — copy **everything inside** this `productionWebsite/` folder 
 ## Repo layout
 
 ```
-.github/workflows/pages.yml   # deploys website/ on push to main
+.github/workflows/pages.yml   # optional: deploys docs/ via GitHub Actions
 README.md
-website/
+docs/                         # GitHub Pages publish folder (branch deploy: main + /docs)
   index.html                  # landing + download page
-  config.js                   # version, DMG filenames, legal metadata
+  config.js
   styles.css
   assets/icon.png
   screenshots/
@@ -26,7 +26,9 @@ website/
 
 ## GitHub Pages
 
-Settings → Pages → Source: **GitHub Actions** (workflow included).
+**Branch deploy (recommended):** Settings → Pages → Deploy from branch `main` → folder **`/docs`**.
+
+**GitHub Actions (optional):** Settings → Pages → Source: GitHub Actions (workflow deploys `docs/`).
 
 ## Publish installers (both Mac DMGs)
 
@@ -45,13 +47,21 @@ https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/{filenam
 
 ## Legal
 
-- Privacy and Terms live in `website/legal/`.
+- Privacy and Terms live in `docs/legal/`.
 - Binary-only distribution — no public source repo linked from the site.
 - Update `legal.effectiveDate` in `config.js` when policies change.
 
 ## Screenshots
 
-Add PNGs to `website/screenshots/` (`canvas.png`, `editor.png`).
+Add PNGs to `docs/screenshots/` (`canvas.png`, `editor.png`).
+
+## Deploy to webpage repo
+
+From PRDSpring root:
+
+```bash
+./scripts/deploy-designflow-webpage.sh
+```
 
 ## Custom domain (optional)
 
