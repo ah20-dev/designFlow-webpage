@@ -4,7 +4,7 @@ Public GitHub Pages repo: **`ah20-dev/designFlow-webpage`**
 
 Live site: `https://ah20-dev.github.io/designFlow-webpage/`
 
-Portable bundle — copy **everything inside** this `productionWebsite/` folder to the website repo root.
+Portable bundle — copy **everything inside** this `designflow-website/` folder to the public webpage repo root (excluding `scripts/`).
 
 ## Repo layout
 
@@ -89,7 +89,7 @@ Add PNGs to `docs/screenshots/` (`canvas.png`, `editor.png`).
 From PRDSpring root:
 
 ```bash
-./scripts/deploy-designflow-webpage.sh
+./designflow-website/scripts/deploy-designflow-webpage.sh
 ```
 
 ## Custom domain (optional)
