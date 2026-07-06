@@ -42,7 +42,7 @@
                 download
               >Mac (Apple Silicon)</a>
               <a
-                class="btn btn-secondary"
+                class="btn btn-primary"
                 href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_1.0.0_x64.dmg"
                 download
               >Mac (Intel)</a>
@@ -118,7 +118,6 @@
         <nav class="footer-links" aria-label="Footer">
           <a href="./legal/privacy.html">Privacy</a>
           <a href="./legal/terms.html">Terms</a>
-          <a id="footer-support" href="mailto:support@designflow.app">Contact</a>
         </nav>
         <p id="footer-copy">&copy; <span id="year"></span> DesignFlow</p>
       </div>
@@ -130,7 +129,7 @@
         const cfg = window.DESIGNFLOW_CONFIG;
         if (!cfg) return;
 
-        const { github, downloads, screenshots, links } = cfg;
+        const { github, downloads, screenshots } = cfg;
         const releaseBase = `https://github.com/${github.owner}/${github.repo}/releases/latest/download`;
 
         function releaseUrl(filename) {
@@ -139,19 +138,15 @@
 
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        if (links.supportEmail) {
-          document.getElementById('footer-support').href = `mailto:${links.supportEmail}`;
-        }
-
         const macDownloads = Object.entries(downloads).filter(
           ([key, item]) => key.startsWith('darwin-') && item.enabled
         );
 
         const heroContainer = document.getElementById('hero-downloads');
         heroContainer.replaceChildren();
-        macDownloads.forEach(([key, item], index) => {
+        macDownloads.forEach(([, item]) => {
           const btn = document.createElement('a');
-          btn.className = 'btn ' + (index === 0 ? 'btn-primary' : 'btn-secondary');
+          btn.className = 'btn btn-primary';
           btn.href = releaseUrl(item.filename);
           btn.setAttribute('download', '');
           btn.textContent = item.label;

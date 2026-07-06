@@ -13,7 +13,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../styles.css" />
-    <script src="../config.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -49,8 +48,7 @@
         <h2>1. Who we are</h2>
         <p>
           DesignFlow is operated by <span class="legal-operator-inline">the operator of DesignFlow</span>,
-          an individual developer. For privacy questions, contact us at
-          <a id="legal-support-email" href="mailto:support@designflow.app">support@designflow.app</a>.
+          an individual developer. We do not currently operate a dedicated support email or contact form.
         </p>
 
         <h2>2. Information we collect</h2>
@@ -64,16 +62,14 @@
             <strong>Downloads.</strong> When you download an installer from GitHub Releases, GitHub may
             log download activity and technical metadata.
           </li>
-          <li>
-            <strong>Support email.</strong> If you contact us, we receive your email address, message
-            content, and any information you choose to include.
-          </li>
         </ul>
 
         <h2>3. Information we do not collect</h2>
-        <p>The DesignFlow desktop app is local-first. We do not operate user accounts and we do not
+        <p>
+          The DesignFlow desktop app is local-first. We do not operate user accounts and we do not
           receive your project files, canvas content, or PRD text. As of the current release, the app
-          does not include analytics or advertising trackers.</p>
+          does not include analytics or advertising trackers.
+        </p>
 
         <h2>4. How the desktop app stores data</h2>
         <p>
@@ -97,25 +93,16 @@
         </p>
 
         <h2>7. How we use information</h2>
-        <p>We use the limited information described above to:</p>
-        <ul>
-          <li>operate and secure the website and downloads;</li>
-          <li>respond to support requests;</li>
-          <li>improve the product when you voluntarily provide feedback.</li>
-        </ul>
+        <p>We use the limited information described above to operate and secure the website and downloads.</p>
 
         <h2>8. Retention</h2>
-        <p>
-          Support emails are kept only as long as needed to respond and maintain reasonable records.
-          Hosting and download logs are retained according to GitHub’s policies.
-        </p>
+        <p>Hosting and download logs are retained according to GitHub’s policies.</p>
 
         <h2>9. Your rights</h2>
         <p>
-          Depending on where you live, you may have rights to access, correct, delete, or restrict use of
-          personal information we hold (for example support emails). Contact us at
-          <a class="legal-support-inline" href="mailto:support@designflow.app">support@designflow.app</a>
-          to make a request.
+          Depending on where you live, you may have rights regarding personal information processed by
+          our hosting providers. Because we do not operate accounts or collect app usage data, we
+          generally do not hold personal information beyond what GitHub processes as described above.
         </p>
 
         <h2>10. Children</h2>
@@ -137,12 +124,6 @@
           when we do. Continued use of the website or app after changes means you accept the updated
           policy.
         </p>
-
-        <h2>13. Contact</h2>
-        <p>
-          Email:
-          <a class="legal-support-inline" href="mailto:support@designflow.app">support@designflow.app</a>
-        </p>
       </div>
     </main>
 
@@ -152,17 +133,15 @@
         <nav class="footer-links" aria-label="Footer">
           <a href="./privacy.html">Privacy</a>
           <a href="./terms.html">Terms</a>
-          <a class="footer-support" href="mailto:support@designflow.app">Contact</a>
         </nav>
         <p>&copy; <span id="year"></span> DesignFlow</p>
       </div>
     </footer>
 
+    <script src="../config.js"></script>
     <script>
       (function () {
-        const cfg = window.DESIGNFLOW_CONFIG;
-        const legal = cfg?.legal;
-        const email = legal?.supportEmail || cfg?.links?.supportEmail || 'support@designflow.app';
+        const legal = window.DESIGNFLOW_CONFIG?.legal;
         const operator = legal?.operatorLabel || 'the operator of DesignFlow';
 
         document.getElementById('year').textContent = new Date().getFullYear();
@@ -178,13 +157,6 @@
 
         document.querySelectorAll('#legal-operator, .legal-operator-inline').forEach((el) => {
           el.textContent = operator;
-        });
-
-        document.querySelectorAll('#legal-support-email, .legal-support-inline, .footer-support').forEach((el) => {
-          el.href = 'mailto:' + email;
-          if (el.id === 'legal-support-email' || el.classList.contains('footer-support')) {
-            el.textContent = email;
-          }
         });
       })();
     </script>

@@ -13,7 +13,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../styles.css" />
-    <script src="../config.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -136,11 +135,8 @@
 
         <h2>12. Dispute resolution</h2>
         <p>
-          Before filing a claim, contact us at
-          <a id="legal-support-email" href="mailto:support@designflow.app">support@designflow.app</a>
-          and allow a reasonable time to resolve the issue informally. If a dispute cannot be resolved
-          informally, it will be brought in the courts located in Delaware, unless applicable law
-          requires otherwise.
+          Any dispute arising out of or relating to these Terms or the Software will be brought in the
+          courts located in Delaware, unless applicable law requires otherwise.
         </p>
 
         <h2>13. General</h2>
@@ -155,12 +151,6 @@
           We may modify these Terms by posting an updated version on this website with a new “Last
           updated” date. Continued use after changes means you accept the updated Terms.
         </p>
-
-        <h2>15. Contact</h2>
-        <p>
-          Email:
-          <a class="legal-support-inline" href="mailto:support@designflow.app">support@designflow.app</a>
-        </p>
       </div>
     </main>
 
@@ -170,17 +160,15 @@
         <nav class="footer-links" aria-label="Footer">
           <a href="./privacy.html">Privacy</a>
           <a href="./terms.html">Terms</a>
-          <a class="footer-support" href="mailto:support@designflow.app">Contact</a>
         </nav>
         <p>&copy; <span id="year"></span> DesignFlow</p>
       </div>
     </footer>
 
+    <script src="../config.js"></script>
     <script>
       (function () {
-        const cfg = window.DESIGNFLOW_CONFIG;
-        const legal = cfg?.legal;
-        const email = legal?.supportEmail || cfg?.links?.supportEmail || 'support@designflow.app';
+        const legal = window.DESIGNFLOW_CONFIG?.legal;
         const operator = legal?.operatorLabel || 'the operator of DesignFlow';
 
         document.getElementById('year').textContent = new Date().getFullYear();
@@ -199,13 +187,6 @@
         }
 
         document.getElementById('legal-operator').textContent = operator;
-
-        document.querySelectorAll('#legal-support-email, .legal-support-inline, .footer-support').forEach((el) => {
-          el.href = 'mailto:' + email;
-          if (el.id === 'legal-support-email' || el.classList.contains('footer-support')) {
-            el.textContent = email;
-          }
-        });
       })();
     </script>
   </body>

@@ -44,12 +44,7 @@ window.DESIGNFLOW_CONFIG = {
   legal: {
     productName: 'DesignFlow',
     operatorLabel: 'the operator of DesignFlow',
-    supportEmail: 'support@designflow.app',
     effectiveDate: '2026-07-06',
     governingLaw: 'the State of Delaware, United States',
-  },
-
-  links: {
-    supportEmail: 'support@designflow.app',
   },
 };
