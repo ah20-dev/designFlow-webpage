@@ -276,13 +276,8 @@ section.alt .feature-card {
 
 .preview-card img {
   display: block;
-  width: auto;
-  max-width: 100%;
-  max-height: min(52vh, 520px);
+  width: 100%;
   height: auto;
-  object-fit: contain;
-  object-position: center;
-  margin-inline: auto;
   background: var(--zen-sidebar);
 }
 
