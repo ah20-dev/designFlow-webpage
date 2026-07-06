@@ -261,6 +261,7 @@ section.alt .feature-card {
   gap: 1.5rem;
   width: 100%;
   min-width: 0;
+  align-items: start;
 }
 
 .preview-card {
@@ -268,6 +269,7 @@ section.alt .feature-card {
   flex-direction: column;
   min-width: 0;
   max-width: 100%;
+  height: auto;
   border: 1px solid var(--zen-border);
   border-radius: 12px;
   overflow: hidden;
@@ -278,7 +280,16 @@ section.alt .feature-card {
   display: block;
   width: 100%;
   height: auto;
+  flex: 0 0 auto;
   background: var(--zen-sidebar);
+}
+
+.preview-card figcaption {
+  flex: 0 0 auto;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  color: var(--zen-muted);
+  border-top: 1px solid var(--zen-border);
 }
 
 .preview-placeholder {
@@ -289,13 +300,6 @@ section.alt .feature-card {
   background: linear-gradient(135deg, var(--zen-sidebar) 0%, var(--zen-accent-soft) 100%);
   color: var(--zen-muted);
   font-size: 0.9rem;
-}
-
-.preview-card figcaption {
-  padding: 0.85rem 1rem;
-  font-size: 0.9rem;
-  color: var(--zen-muted);
-  border-top: 1px solid var(--zen-border);
 }
 
 /* Download */
