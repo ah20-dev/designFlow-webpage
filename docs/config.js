@@ -30,11 +30,6 @@ window.DESIGNFLOW_CONFIG = {
 
   screenshots: [
     {
-      src: './screenshots/canvas.png',
-      alt: 'DesignFlow architecture canvas with MCP sync',
-      caption: 'Architecture canvas',
-    },
-    {
       src: './screenshots/editor.png',
       alt: 'DesignFlow workspace with PRD editor and canvas',
       caption: 'Editor + canvas workspace',

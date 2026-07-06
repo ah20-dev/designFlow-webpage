@@ -257,19 +257,15 @@ section.alt .feature-card {
 }
 
 .preview-grid {
-  display: grid;
-  gap: 1.5rem;
-  width: 100%;
-  min-width: 0;
-  align-items: start;
+  display: flex;
+  justify-content: center;
 }
 
 .preview-card {
   display: block;
-  min-width: 0;
-  max-width: 100%;
-  height: fit-content;
-  align-self: start;
+  width: 100%;
+  max-width: calc(min(100%, 760px) * 1.05);
+  margin-inline: auto;
   border: 1px solid var(--zen-border);
   border-radius: 12px;
   overflow: hidden;
@@ -457,8 +453,3 @@ section.alt .feature-card {
   }
 }
 
-@media (min-width: 640px) {
-  .preview-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
