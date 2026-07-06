@@ -249,9 +249,13 @@ section.alt .feature-card {
 
 /* Preview */
 
+#preview .container {
+  width: min(100% - 2rem, calc(var(--max-width) * 1.15));
+}
+
 .preview-grid {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .preview-card {
@@ -262,9 +266,10 @@ section.alt .feature-card {
 }
 
 .preview-card img {
+  display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   background: var(--zen-sidebar);
 }
 
@@ -272,7 +277,7 @@ section.alt .feature-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 16 / 10;
+  min-height: 14rem;
   background: linear-gradient(135deg, var(--zen-sidebar) 0%, var(--zen-accent-soft) 100%);
   color: var(--zen-muted);
   font-size: 0.9rem;
