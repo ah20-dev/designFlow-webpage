@@ -264,7 +264,7 @@ section.alt .feature-card {
 .preview-card {
   display: block;
   width: 100%;
-  max-width: calc(min(100%, 760px) * 1.05);
+  max-width: min(100%, 758px);
   margin-inline: auto;
   border: 1px solid var(--zen-border);
   border-radius: 12px;
