@@ -16,7 +16,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./config.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -37,7 +36,16 @@
             <h1>DesignFlow</h1>
             <p class="tagline">local-first architecture canvas for co-working with AI</p>
             <div class="hero-actions" id="hero-downloads">
-              <a class="btn btn-primary" href="#download">Download for Mac</a>
+              <a
+                class="btn btn-primary"
+                href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_1.0.0_aarch64.dmg"
+                download
+              >Mac (Apple Silicon)</a>
+              <a
+                class="btn btn-secondary"
+                href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_1.0.0_x64.dmg"
+                download
+              >Mac (Intel)</a>
             </div>
           </div>
         </div>
@@ -82,7 +90,24 @@
             <h2>Download for Mac</h2>
             <p>macOS 11+. Choose Apple Silicon (M1/M2/M3/M4) or Intel.</p>
           </div>
-          <div class="download-grid" id="download-grid"></div>
+          <div class="download-grid" id="download-grid">
+            <a
+              class="download-btn"
+              href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_1.0.0_aarch64.dmg"
+              download
+            >
+              <span><span class="label">Mac (Apple Silicon)</span></span>
+              <span class="arrow" aria-hidden="true">↓</span>
+            </a>
+            <a
+              class="download-btn"
+              href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_1.0.0_x64.dmg"
+              download
+            >
+              <span><span class="label">Mac (Intel)</span></span>
+              <span class="arrow" aria-hidden="true">↓</span>
+            </a>
+          </div>
         </div>
       </section>
     </main>
@@ -99,6 +124,7 @@
       </div>
     </footer>
 
+    <script src="./config.js"></script>
     <script>
       (function () {
         const cfg = window.DESIGNFLOW_CONFIG;
@@ -140,6 +166,7 @@
         }
 
         const downloadGrid = document.getElementById('download-grid');
+        downloadGrid.replaceChildren();
         for (const [key, item] of Object.entries(downloads)) {
           if (!item.enabled) continue;
           const el = document.createElement('a');
