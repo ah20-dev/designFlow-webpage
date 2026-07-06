@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="DesignFlow Privacy Policy" />
+    <title>Privacy Policy — DesignFlow</title>
+    <link rel="icon" href="../assets/icon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../config.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="../">
+          <img src="../assets/icon.png" alt="" width="32" height="32" />
+          DesignFlow
+        </a>
+        <a class="nav-cta" href="../#download">Download</a>
+      </div>
+    </header>
+
+    <main class="legal-page">
+      <div class="container legal-prose">
+        <nav class="legal-nav" aria-label="Legal">
+          <a href="../">Home</a>
+          <a href="./terms.html">Terms of Service</a>
+        </nav>
+
+        <h1>Privacy Policy</h1>
+        <p class="legal-meta">Last updated: <span id="legal-effective-date">July 6, 2026</span></p>
+
+        <p class="legal-notice">
+          This is a standard privacy notice for a small software project. It is not legal advice.
+        </p>
+
+        <p>
+          This Privacy Policy describes how <span id="legal-operator">the operator of DesignFlow</span>
+          (“we”, “us”) handles information when you visit the DesignFlow website or use the DesignFlow
+          desktop application.
+        </p>
+
+        <h2>1. Who we are</h2>
+        <p>
+          DesignFlow is operated by <span class="legal-operator-inline">the operator of DesignFlow</span>,
+          an individual developer. For privacy questions, contact us at
+          <a id="legal-support-email" href="mailto:support@designflow.app">support@designflow.app</a>.
+        </p>
+
+        <h2>2. Information we collect</h2>
+        <p>We collect very little information:</p>
+        <ul>
+          <li>
+            <strong>Website visitors.</strong> Our hosting provider (GitHub Pages) may log standard
+            technical data such as IP address, browser type, referring page, and access time.
+          </li>
+          <li>
+            <strong>Downloads.</strong> When you download an installer from GitHub Releases, GitHub may
+            log download activity and technical metadata.
+          </li>
+          <li>
+            <strong>Support email.</strong> If you contact us, we receive your email address, message
+            content, and any information you choose to include.
+          </li>
+        </ul>
+
+        <h2>3. Information we do not collect</h2>
+        <p>The DesignFlow desktop app is local-first. We do not operate user accounts and we do not
+          receive your project files, canvas content, or PRD text. As of the current release, the app
+          does not include analytics or advertising trackers.</p>
+
+        <h2>4. How the desktop app stores data</h2>
+        <p>
+          DesignFlow stores projects on your device. If you enable MCP integrations (for example Cursor
+          or Claude Desktop), those tools run on your machine under your control. We do not receive data
+          sent between your editor and those third-party services.
+        </p>
+
+        <h2>5. Third-party services</h2>
+        <ul>
+          <li><strong>GitHub</strong> — website hosting and installer downloads.</li>
+          <li><strong>Google Fonts</strong> — typography on this website (may involve your browser contacting Google).</li>
+          <li><strong>Your AI tools</strong> — optional MCP clients you configure locally.</li>
+        </ul>
+        <p>Each third party has its own privacy practices.</p>
+
+        <h2>6. Cookies</h2>
+        <p>
+          We do not use non-essential cookies or advertising cookies on this website. GitHub Pages or
+          your browser may use strictly necessary technical storage for basic site operation.
+        </p>
+
+        <h2>7. How we use information</h2>
+        <p>We use the limited information described above to:</p>
+        <ul>
+          <li>operate and secure the website and downloads;</li>
+          <li>respond to support requests;</li>
+          <li>improve the product when you voluntarily provide feedback.</li>
+        </ul>
+
+        <h2>8. Retention</h2>
+        <p>
+          Support emails are kept only as long as needed to respond and maintain reasonable records.
+          Hosting and download logs are retained according to GitHub’s policies.
+        </p>
+
+        <h2>9. Your rights</h2>
+        <p>
+          Depending on where you live, you may have rights to access, correct, delete, or restrict use of
+          personal information we hold (for example support emails). Contact us at
+          <a class="legal-support-inline" href="mailto:support@designflow.app">support@designflow.app</a>
+          to make a request.
+        </p>
+
+        <h2>10. Children</h2>
+        <p>
+          DesignFlow is not directed at children under 13 (or under 16 in the European Economic Area).
+          We do not knowingly collect personal information from children.
+        </p>
+
+        <h2>11. International users</h2>
+        <p>
+          We are based in the United States. If you access the site or app from other regions, your
+          information may be processed in the United States and other countries where our providers
+          operate.
+        </p>
+
+        <h2>12. Changes</h2>
+        <p>
+          We may update this Privacy Policy from time to time. The “Last updated” date above will change
+          when we do. Continued use of the website or app after changes means you accept the updated
+          policy.
+        </p>
+
+        <h2>13. Contact</h2>
+        <p>
+          Email:
+          <a class="legal-support-inline" href="mailto:support@designflow.app">support@designflow.app</a>
+        </p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>DesignFlow — local-first architecture workspace</p>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="./privacy.html">Privacy</a>
+          <a href="./terms.html">Terms</a>
+          <a class="footer-support" href="mailto:support@designflow.app">Contact</a>
+        </nav>
+        <p>&copy; <span id="year"></span> DesignFlow</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        const cfg = window.DESIGNFLOW_CONFIG;
+        const legal = cfg?.legal;
+        const email = legal?.supportEmail || cfg?.links?.supportEmail || 'support@designflow.app';
+        const operator = legal?.operatorLabel || 'the operator of DesignFlow';
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        if (legal?.effectiveDate) {
+          const formatted = new Date(legal.effectiveDate + 'T12:00:00').toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          });
+          document.getElementById('legal-effective-date').textContent = formatted;
+        }
+
+        document.querySelectorAll('#legal-operator, .legal-operator-inline').forEach((el) => {
+          el.textContent = operator;
+        });
+
+        document.querySelectorAll('#legal-support-email, .legal-support-inline, .footer-support').forEach((el) => {
+          el.href = 'mailto:' + email;
+          if (el.id === 'legal-support-email' || el.classList.contains('footer-support')) {
+            el.textContent = email;
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
