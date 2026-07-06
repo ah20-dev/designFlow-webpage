@@ -9,7 +9,8 @@ Portable bundle — copy **everything inside** this `productionWebsite/` folder 
 ## Repo layout
 
 ```
-.github/workflows/pages.yml   # optional: deploys docs/ via GitHub Actions
+# Optional: .github/workflows/pages.yml exists locally for Actions deploy.
+# Branch Pages uses docs/ only — workflow not required.
 README.md
 docs/                         # GitHub Pages publish folder (branch deploy: main + /docs)
   index.html                  # landing + download page
