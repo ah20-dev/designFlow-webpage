@@ -402,14 +402,43 @@ section.alt .feature-card {
   margin-bottom: 2rem;
 }
 
-.legal-notice {
-  font-size: 0.875rem;
-  color: var(--zen-muted);
-  background: var(--zen-sidebar);
+.legal-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
   border: 1px solid var(--zen-border);
   border-radius: 8px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 2rem;
+}
+
+.legal-nutrition {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  min-width: 640px;
+}
+
+.legal-nutrition th,
+.legal-nutrition td {
+  text-align: left;
+  padding: 0.625rem 0.875rem;
+  border-bottom: 1px solid var(--zen-border);
+}
+
+.legal-nutrition thead th {
+  background: var(--zen-sidebar);
+  color: var(--zen-text);
+  font-weight: 600;
+}
+
+.legal-nutrition tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.legal-nutrition td {
+  color: var(--zen-muted);
+}
+
+.legal-nutrition td:first-child {
+  color: var(--zen-text);
 }
 
 .legal-prose h2 {

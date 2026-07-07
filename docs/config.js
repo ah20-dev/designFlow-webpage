@@ -39,7 +39,7 @@ window.DESIGNFLOW_CONFIG = {
   legal: {
     productName: 'DesignFlow',
     operatorLabel: 'the operator of DesignFlow',
-    effectiveDate: '2026-07-06',
+    effectiveDate: '2026-07-07',
     governingLaw: 'the State of Delaware, United States',
   },
 };
