@@ -33,8 +33,12 @@ Requires `DESIGNFLOW_WEBPAGE_GITHUB_TOKEN` in `.env.local` (see `.env.example`).
 ## Publish a release
 
 1. https://github.com/ah20-dev/designFlow-webpage/releases/new
-2. Tag `v1.0.0`, attach signed DMGs with filenames matching `config.js`
+2. Tag `v1.0.0`, attach DMGs with filenames **exactly matching** `docs/config.js`:
+   - `DesignFlow_1.0.0_aarch64.dmg`
+   - `DesignFlow_1.0.0_x64.dmg`
 3. Publish
+
+The local sign script outputs `*-signed.dmg` on Desktop — rename before upload (drop `-signed` from the filename).
 
 ## Notes
 

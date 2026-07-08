@@ -13,12 +13,12 @@ window.DESIGNFLOW_CONFIG = {
   downloads: {
     'darwin-arm64': {
       label: 'Mac (Apple Silicon)',
-      filename: 'DesignFlow_1.0.0_aarch64-signed.dmg',
+      filename: 'DesignFlow_1.0.0_aarch64.dmg',
       enabled: true,
     },
     'darwin-x64': {
       label: 'Mac (Intel)',
-      filename: 'DesignFlow_1.0.0_x64-signed.dmg',
+      filename: 'DesignFlow_1.0.0_x64.dmg',
       enabled: true,
     },
     'win-x64': {
