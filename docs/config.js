@@ -8,7 +8,7 @@ window.DESIGNFLOW_CONFIG = {
     repo: 'designFlow-webpage',
   },
 
-  version: '1.0.0',
+  version: '1.2.0',
 
   downloads: {
     'darwin-arm64': {
