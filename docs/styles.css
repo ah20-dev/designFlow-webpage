@@ -257,8 +257,10 @@ section.alt .feature-card {
 }
 
 .preview-grid {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  justify-items: center;
 }
 
 .preview-card {
@@ -272,11 +274,17 @@ section.alt .feature-card {
   background: #fff;
 }
 
-.preview-card img {
+.preview-card img,
+.preview-card video {
   display: block;
   width: 100%;
   height: auto;
   background: var(--zen-sidebar);
+}
+
+.preview-card.preview-video {
+  grid-column: 1 / -1;
+  max-width: min(100%, 980px);
 }
 
 .preview-card figcaption {
@@ -479,6 +487,20 @@ section.alt .feature-card {
 @media (min-width: 768px) {
   .features-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 860px) {
+  .preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .preview-card {
+    max-width: 100%;
+  }
+
+  .preview-card.preview-video {
+    max-width: min(100%, 980px);
   }
 }
 

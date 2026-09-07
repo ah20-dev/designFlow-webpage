@@ -1,4 +1,4 @@
-1.<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -38,14 +38,19 @@
             <div class="hero-actions" id="hero-downloads">
               <a
                 class="btn btn-primary"
-                href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_1.2.0_aarch64.dmg"
+                href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_2.1.1_aarch64.dmg"
                 download
               >Mac (Apple Silicon)</a>
               <a
                 class="btn btn-primary"
-                href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_1.2.0_x64.dmg"
+                href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_2.1.1_x64.dmg"
                 download
               >Mac (Intel)</a>
+              <a
+                class="btn btn-primary"
+                href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_2.1.1_x64-setup.exe"
+                download
+              >Windows</a>
             </div>
           </div>
         </div>
@@ -78,7 +83,7 @@
         <div class="container">
           <div class="section-header">
             <h2>See it in action</h2>
-            <p>DesignFlow in action — diagram your stack and write specs in one place.</p>
+            <p>Watch the canvas come together, then explore the workspace.</p>
           </div>
           <div class="preview-grid" id="preview-grid"></div>
         </div>
@@ -87,13 +92,13 @@
       <section id="download">
         <div class="container">
           <div class="section-header">
-            <h2>Download for Mac</h2>
-            <p>macOS 11+. Choose Apple Silicon (M1/M2/M3/M4) or Intel.</p>
+            <h2>Download</h2>
+            <p>macOS 11+ (Apple Silicon or Intel) and Windows 10/11 64-bit.</p>
           </div>
           <div class="download-grid" id="download-grid">
             <a
               class="download-btn"
-              href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_1.2.0_aarch64.dmg"
+              href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_2.1.1_aarch64.dmg"
               download
             >
               <span><span class="label">Mac (Apple Silicon)</span></span>
@@ -101,10 +106,18 @@
             </a>
             <a
               class="download-btn"
-              href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_1.2.0_x64.dmg"
+              href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_2.1.1_x64.dmg"
               download
             >
               <span><span class="label">Mac (Intel)</span></span>
+              <span class="arrow" aria-hidden="true">↓</span>
+            </a>
+            <a
+              class="download-btn"
+              href="https://github.com/ah20-dev/designFlow-webpage/releases/latest/download/DesignFlow_2.1.1_x64-setup.exe"
+              download
+            >
+              <span><span class="label">Windows</span></span>
               <span class="arrow" aria-hidden="true">↓</span>
             </a>
           </div>
@@ -129,7 +142,7 @@
         const cfg = window.DESIGNFLOW_CONFIG;
         if (!cfg) return;
 
-        const { github, downloads, screenshots } = cfg;
+        const { github, downloads, screenshots, video } = cfg;
         const releaseBase = `https://github.com/${github.owner}/${github.repo}/releases/latest/download`;
 
         function releaseUrl(filename) {
@@ -138,13 +151,13 @@
 
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        const macDownloads = Object.entries(downloads).filter(
-          ([key, item]) => key.startsWith('darwin-') && item.enabled
+        const enabledDownloads = Object.entries(downloads).filter(
+          ([, item]) => item.enabled
         );
 
         const heroContainer = document.getElementById('hero-downloads');
         heroContainer.replaceChildren();
-        macDownloads.forEach(([, item]) => {
+        enabledDownloads.forEach(([, item]) => {
           const btn = document.createElement('a');
           btn.className = 'btn btn-primary';
           btn.href = releaseUrl(item.filename);
@@ -152,11 +165,11 @@
           btn.textContent = item.label;
           heroContainer.appendChild(btn);
         });
-        if (macDownloads.length === 0) {
+        if (enabledDownloads.length === 0) {
           const fallback = document.createElement('a');
           fallback.className = 'btn btn-primary';
           fallback.href = '#download';
-          fallback.textContent = 'Download for Mac';
+          fallback.textContent = 'Download';
           heroContainer.appendChild(fallback);
         }
 
@@ -178,6 +191,29 @@
         }
 
         const previewGrid = document.getElementById('preview-grid');
+
+        if (video && video.src) {
+          const figure = document.createElement('figure');
+          figure.className = 'preview-card preview-video';
+
+          const el = document.createElement('video');
+          el.src = video.src;
+          el.controls = true;
+          el.playsInline = true;
+          el.muted = true;
+          el.loop = true;
+          el.preload = 'metadata';
+          if (video.poster) el.poster = video.poster;
+          el.addEventListener('error', () => figure.remove());
+
+          const caption = document.createElement('figcaption');
+          caption.textContent = video.caption;
+
+          figure.appendChild(el);
+          figure.appendChild(caption);
+          previewGrid.appendChild(figure);
+        }
+
         for (const shot of screenshots) {
           const figure = document.createElement('figure');
           figure.className = 'preview-card';
